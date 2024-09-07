@@ -4,9 +4,9 @@ const mongoose = require('mongoose');
 var ObjectID = require("mongoose").Types.ObjectId;
 
 
-exports.getStudentById = async (etu) => {
+exports.getStudentById = async (etu,email) => {
   try {
-      const student = await Student.findOne({ numETU: etu });
+      const student = await Student.findOne({ numETU: etu,email : email });
       if (!student) {
           return { status: false, data: 'Étudiant non trouvé!' };
       }

@@ -3,7 +3,8 @@ const studentRepository = require('../services/StudentRepository');
 exports.getStudentById = async (req, res) => {
   try {
       const id = req.params.id;
-      const result = await studentRepository.getStudentById(id);
+      const email = req.params.email;
+      const result = await studentRepository.getStudentById(id,email);
       if (!result.status) {
           return res.status(404).json(result);
       }
